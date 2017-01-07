@@ -5,10 +5,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from '../app.component';
 import {  PageNotFoundComponent } from '../notfound.component';
 import { HomeComponent } from '../home/home.component';
+import { DirectivasComponent } from '../directivas/directivas.component';
+import { TypescriptComponent } from '../typescript/typescript.component';
+import { PipesComponent } from '../pipes/pipes.component';
+import { ComponentsComponent } from '../components/components.component';
 
 const appRoutes: Routes = [
   { path: '',  component: HomeComponent },
-  { path: 'lol',  component: PageNotFoundComponent }
+  { path: 'directivas',  component: DirectivasComponent},
+  { path: 'componentes',  component: ComponentsComponent },
+  { path: 'typescript', component: TypescriptComponent },
+  { path: 'pipes', component: PipesComponent },
+  { path: '**',  component: PageNotFoundComponent }
   ];
 
 @NgModule({

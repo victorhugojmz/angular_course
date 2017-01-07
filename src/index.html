@@ -11,6 +11,18 @@
 </head>
 <body>
  <app-root>Loading...</app-root>
+ <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCokqGht8usrlLBt6WHnYF4tu47vOnNiBw",
+    authDomain: "angulardevelop.firebaseapp.com",
+    databaseURL: "https://angulardevelop.firebaseio.com",
+    storageBucket: "angulardevelop.appspot.com",
+    messagingSenderId: "1025803377849"
+  };
+  firebase.initializeApp(config);
+  </script>
  <script
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
