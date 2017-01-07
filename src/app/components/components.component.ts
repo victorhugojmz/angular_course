@@ -8,15 +8,9 @@ declare var firebase: any;
 })
 export class ComponentsComponent implements OnInit {
 
-  constructor(private http:Http) { }
+  constructor() { }
 
   ngOnInit() {
-    this.getData();
-  }
- getData(){
-   console.log("k")
-        firebase.database().ref('/').on('child_added', (snapshot)=>{
-          console.log(snapshot)
-        })
+
   }
 }
