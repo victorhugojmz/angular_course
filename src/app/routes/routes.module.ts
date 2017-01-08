@@ -9,6 +9,7 @@ import { DirectivasComponent } from '../directivas/directivas.component';
 import { TypescriptComponent } from '../typescript/typescript.component';
 import { PipesComponent } from '../pipes/pipes.component';
 import { ComponentsComponent } from '../components/components.component';
+import { ServiciosComponent } from '../servicios/servicios.component';
 
 const appRoutes: Routes = [
   { path: '',  component: HomeComponent },
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'componentes',  component: ComponentsComponent },
   { path: 'typescript', component: TypescriptComponent },
   { path: 'pipes', component: PipesComponent },
+  { path: 'servicios', component: ServiciosComponent },
   { path: '**',  component: PageNotFoundComponent }
   ];
 

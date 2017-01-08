@@ -11,6 +11,5 @@ export class ComponentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 }
