@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ Http } from '@angular/http';
-declare var firebase: any;
+import { ClienteFormComponent } from '../cliente-form/cliente-form.component';
 @Component({
   selector: 'app-components',
   templateUrl: './components.component.html',
