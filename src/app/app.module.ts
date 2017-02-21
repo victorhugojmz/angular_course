@@ -15,6 +15,7 @@ import { ComponentsComponent } from './components/components.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 
 import { MaterialModule } from '@angular/material';
+import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { MaterialModule } from '@angular/material';
     TypescriptComponent,
     PipesComponent,
     ComponentsComponent,
-    ServiciosComponent
-  ],
+    ServiciosComponent,
+    ClienteFormComponent
+],
   imports: [
     BrowserModule,
     FormsModule,
