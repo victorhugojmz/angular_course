@@ -14,6 +14,7 @@ import { PipesComponent } from './pipes/pipes.component';
 import { ComponentsComponent } from './components/components.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ServiciosComponent } from './servicios/servicios.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RoutesModule
+    RoutesModule,
+    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

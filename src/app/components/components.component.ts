@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{ Http } from '@angular/http'; 
+import{ Http } from '@angular/http';
 declare var firebase: any;
 @Component({
   selector: 'app-components',
@@ -7,7 +7,7 @@ declare var firebase: any;
   styleUrls: ['./components.component.css']
 })
 export class ComponentsComponent implements OnInit {
-
+ 
   constructor() { }
 
   ngOnInit() {
