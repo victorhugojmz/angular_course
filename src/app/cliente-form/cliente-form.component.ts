@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from './../cliente';
+import { Empleado } from './../cliente';
 @Component({
   selector: 'app-cliente-form',
   templateUrl: './cliente-form.component.html',
