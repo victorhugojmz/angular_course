@@ -6,9 +6,8 @@ import { ClienteFormComponent } from '../cliente-form/cliente-form.component';
   styleUrls: ['./components.component.css']
 })
 export class ComponentsComponent implements OnInit {
- 
-  constructor() { }
-
+   constructor() { 
+    }
   ngOnInit() {
   }
 }
