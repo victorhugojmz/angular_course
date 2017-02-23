@@ -1,9 +1,8 @@
 .ng-valid[required], .ng-valid.required {
-    border-right: 5px solid #42A948; /* Muestra un color verde si el elemento fue 
-	declarado con la variable required*/
+    border-right: 5px solid #42A948;
 }
 .ng-invalid:not(form)  {
-   border-right: 5px solid #a94442; /* Crea una clase para cada FormControl noválido */
+    border-right: 5px solid #a94442;
 }
 .ng-pristine:not(form),.ng-untouched:not(form){
     border-right: 5px solid darkorange;

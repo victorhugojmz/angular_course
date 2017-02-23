@@ -11,6 +11,11 @@
              [(ngModel)]="empleado.nombre">
              {{ empleado.nombre }}
     </div>
+    <div
+      [hidden]="nombre.valid || nombre.pristine" 
+      class="alert alert-danger">
+      Es requerido ingresar el nombre.
+    </div>
     <div class="form-group">
       <label for="email">Email:</label>    
       <input #email="ngModel"
@@ -19,6 +24,11 @@
              type="email" class="form-control"
              required [(ngModel)]="empleado.email">
              {{ empleado.email }}
+    </div>
+    <div
+      [hidden]="email.valid || email.pristine" 
+      class="alert alert-danger">
+      Es requerido ingresar el nombre.
     </div>
     <div class="form-group">
       <label for="direccion">Direccion:</label>    
@@ -37,6 +47,11 @@
               type="tel" class="form-control" 
               required [(ngModel)]="empleado.telefono">
               {{ empleado.telefono }}
+    </div>
+    <div
+      [hidden]="telefono.valid ||  telefono.pristine" 
+      class="alert alert-danger">
+      Es requerido ingresar el nombre.
     </div>
     <div class="form-group">
       <select
