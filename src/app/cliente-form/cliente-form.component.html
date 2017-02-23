@@ -3,22 +3,43 @@
   <form class="form">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input placeholder="Ingresa tu nombre" type="text" class="form-control" required>
+      <input name="nombre" 
+             placeholder="Ingresa tu nombre" 
+             type="text" class="form-control" 
+             required 
+             [(ngModel)]="empleado.nombre">
+             {{ empleado.nombre }}
+              
     </div>
     <div class="form-group">
       <label for="email">Email:</label>    
-      <input placeholder="Ingresa tu email" type="email" class="form-control" required>
+      <input name="email"
+             placeholder="Ingresa tu email" 
+             type="email" class="form-control" 
+             required [(ngModel)]="empleado.email">
+             {{ empleado.email }}
     </div>
     <div class="form-group">
       <label for="direccion">Direccion:</label>    
-      <input placeholder="Ingresa tu dirección" type="text" class="form-control" required>
+      <input name="direccion" 
+             placeholder="Ingresa tu dirección" 
+             type="text" class="form-control" 
+             required [(ngModel)]="empleado.direccion">
+             {{ empleado.direccion }}
     </div>
+    {{  diagnostic }}
     <div class="form-group">
       <label for="telefono">Telefono:</label>    
-      <input  placeholder="Ingresa tu telefono" type="tel" class="form-control" required>
+      <input  name="telefono" 
+              placeholder="Ingresa tu telefono" 
+              type="tel" class="form-control" 
+              required [(ngModel)]="empleado.telefono">
+              {{ empleado.telefono }}
     </div>
     <div class="form-group">
-      <select class="form-control">
+      <select 
+          name="departamento" class="form-control"
+          [(ngModel)]="empleado.departamento">
         <option value="">Selecciona un departamento</option>
         <option *ngFor="let departamento of departamentos" [value]="departamento">{{ departamento }}</option>
       </select>
