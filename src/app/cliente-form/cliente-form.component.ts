@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm }  from '@angular/forms';
 import { Empleado } from './../cliente';
 @Component({
   selector: 'app-cliente-form',
@@ -8,7 +9,12 @@ import { Empleado } from './../cliente';
 export class ClienteFormComponent implements OnInit {
   private departamentos : string[] = ['TI','Desarrollo','Ventas','Customer Service','RRHH','Seguridad']
   public empleado = new Empleado(12,'Ricardo Emmanuel Lopez Lopez','','Alejandro Dumas No.983, Polanco','','');
-  private submitted: boolean  = false;
-  constructor() { }
-  ngOnInit(){}
+  public submitted: boolean;
+  constructor() {  this.submitted = false; }
+  ngOnInit(){
+  }
+  OnSubmit(EmpleadoForm): void {
+     this.submitted = true;
+     console.log(EmpleadoForm.valid);
+  }
 }

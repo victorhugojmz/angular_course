@@ -1,20 +1,25 @@
-<div class="col-md-8 col-sm-8 col-xs-12 col-lg-8">
+<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
   <h1>Registro de empleado</h1>
-  <form #EmpleadoForm="ngForm" class="form">
+  <div [hidden]="submitted">
+  <form #EmpleadoForm="ngForm" (ngSubmit)="OnSubmit(EmpleadoForm)">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
       <input name="nombre"
              #nombre="ngModel"
              placeholder="Ingresa tu nombre" 
              type="text" class="form-control" 
-             required 
-             [(ngModel)]="empleado.nombre">
+             required
+             [(ngModel)]="empleado.nombre"
+             minlength="5">
              {{ empleado.nombre }}
     </div>
-    <div
-      [hidden]="nombre.valid || nombre.pristine" 
-      class="alert alert-danger">
-      Es requerido ingresar el nombre.
+    <div  *ngIf="nombre.touched && nombre.errors">
+        <div class="alert alert-danger" *ngIf="nombre.errors.required">
+          Es requerido ingresar el nombre
+        </div>
+        <div class="alert alert-danger" *ngIf="nombre.errors.minlength">
+          El nombre debe ser contener al menos 5 caracteres 
+        </div>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>    
@@ -25,10 +30,10 @@
              required [(ngModel)]="empleado.email">
              {{ empleado.email }}
     </div>
-    <div
-      [hidden]="email.valid || email.pristine" 
-      class="alert alert-danger">
-      Es requerido ingresar el email.
+    <div *ngIf="email.touched && email.errors">
+        <div class="alert alert-danger" *ngIf="email.errors.required">
+          Es requerido ingresar el email
+        </div>
     </div>
     <div class="form-group">
       <label for="direccion">Direccion:</label>    
@@ -39,10 +44,10 @@
              required [(ngModel)]="empleado.direccion">
              {{ empleado.direccion }}
     </div>
-    <div
-      [hidden]="direccion.valid || direccion.pristine" 
-      class="alert alert-danger">
-      Es requerido ingresar la direccion
+    <div  *ngIf="direccion.touched && direccion.errors">
+        <div class="alert alert-danger" *ngIf="direccion.errors.required">
+          Es requerido ingresar la direccion
+        </div>
     </div>
     <div class="form-group">
       <label for="telefono">Telefono:</label>    
@@ -56,20 +61,38 @@
     <div
       [hidden]="telefono.valid ||  telefono.pristine" 
       class="alert alert-danger">
-      Es requerido ingresar el nombre.
+      Es requerido ingresar el telefono.
     </div>
     <div class="form-group">
       <select
-          #departamento = "ngModel"
           name="departamento" class="form-control"
           [(ngModel)]="empleado.departamento">
         <option value="">Selecciona un departamento</option>
         <option *ngFor="let departamento of departamentos" [value]="departamento">{{ departamento }}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success">Guardar cambios</button>
+    <button 
+          type="submit" class="btn btn-success"
+          [disabled]="!EmpleadoForm.form.valid">
+          Guardar cambios
+    </button>
   </form>
-  {{ EmpleadoForm.value | json }}
+  </div>
+    <div [hidden]="!submitted">
+  <h2>Haz enviado los siguientes datos:</h2>
+  <div class="row">
+    <div class="col-xs-3 col-md-3 col-lg-4 col-sm-3">Nombre:</div>
+    <div class="col-xs-9 col-md-9 col-lg-8 col-sm-9 pull-left">{{ empleado.nombre }}</div>
+    <div class="col-xs-3 col-md-3 col-lg-4 col-sm-3">Email:</div>
+    <div class="col-xs-9 col-md-9 col-lg-8 col-sm-9 pull-left">{{ empleado.email }}</div>
+    <div class="col-xs-3 col-md-3 col-lg-4 col-sm-3">Direccion:</div>
+    <div class="col-xs-9 col-md-9 col-lg-8 col-sm-9 pull-left">{{ empleado.direccion }}</div>
+    <div class="col-xs-3 col-md-3 col-lg-4 col-sm-3">Telefono:</div>
+    <div class="col-xs-9 col-md-9 col-lg-8 col-sm-9 pull-left">{{ empleado.telefono }}</div>
+    <div class="col-xs-3 col-md-3 col-lg-4 col-sm-3">Departamento:</div>
+    <div class="col-xs-9 col-md-9 col-lg-8 col-sm-9 pull-left">{{ empleado.departamento }}</div>
+  </div>
   <br>
-  <strong>{{ EmpleadoForm.valid }}</strong>
+  <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
 </div>
