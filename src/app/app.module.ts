@@ -28,7 +28,7 @@ import { ClienteFormComponent } from './cliente-form/cliente-form.component';
     PipesComponent,
     ComponentsComponent,
     ServiciosComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
 ],
   imports: [
     BrowserModule,

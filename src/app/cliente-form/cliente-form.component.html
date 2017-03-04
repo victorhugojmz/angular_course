@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
   <h1>Registro de empleado</h1>
-  <div [hidden]="submitted">
+  <div>
   <form #EmpleadoForm="ngForm" (ngSubmit)="OnSubmit(EmpleadoForm)">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
@@ -78,7 +78,7 @@
     </button>
   </form>
   </div>
-    <div [hidden]="!submitted">
+    <div hidden>
   <h2>Haz enviado los siguientes datos:</h2>
   <div class="row">
     <div class="col-xs-3 col-md-3 col-lg-4 col-sm-3">Nombre:</div>
@@ -96,3 +96,4 @@
   <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
 </div>
 </div>
+{{ control | json }}
