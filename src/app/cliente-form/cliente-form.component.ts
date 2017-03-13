@@ -55,14 +55,14 @@ export class ClienteFormComponent implements OnInit {
     nombre: '',
     email: ''
   }
-  private validationMessages = {
+  validationMessages = {
     'nombre': {
       'required':      'Name is required.',
       'minlength':     'Name must be at least 4 characters long.',
       'maxlength':     'Name cannot be more than 24 characters long.'
   },
-  'power': {
-    'required': 'Power is required.'
+  'email': {
+    'required': 'Es requerido ingresar un email.'
     }  
   };
 }
