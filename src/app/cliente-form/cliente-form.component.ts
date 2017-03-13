@@ -2,6 +2,10 @@ import { Component, OnInit, ViewChild, AfterViewChecked} from '@angular/core';
 import { NgForm }  from '@angular/forms';
 import { Empleado } from './../cliente';
 import 'rxjs/add/operator/switchMap';
+export interface FormErrors { 
+  nombre: string;
+  email: string;
+}
 @Component({
   selector: 'app-cliente-form',
   templateUrl: './cliente-form.component.html',
@@ -47,10 +51,11 @@ export class ClienteFormComponent implements OnInit {
         }
          
   }
-  formErrors = {
-    'nombre': '',
+  public formErrors: FormErrors = {
+    nombre: '',
+    email: ''
   }
-  validationMessages = {
+  private validationMessages = {
     'nombre': {
       'required':      'Name is required.',
       'minlength':     'Name must be at least 4 characters long.',
