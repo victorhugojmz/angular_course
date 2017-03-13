@@ -13,8 +13,6 @@ import { TypescriptComponent } from './typescript/typescript.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ComponentsComponent } from './components/components.component';
 import { ServiciosComponent } from './servicios/servicios.component';
-
-import { MaterialModule } from '@angular/material';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 
 @NgModule({
@@ -35,9 +33,8 @@ import { ClienteFormComponent } from './cliente-form/cliente-form.component';
     FormsModule,
     HttpModule,
     RoutesModule,
-    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class  
+export class AppModule { }
