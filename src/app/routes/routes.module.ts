@@ -10,17 +10,15 @@ import { TypescriptComponent } from '../typescript/typescript.component';
 import { PipesComponent } from '../pipes/pipes.component';
 import { ComponentsComponent } from '../components/components.component';
 import { ServiciosComponent } from '../servicios/servicios.component';
-
 const appRoutes: Routes = [
-  { path: '',  component: HomeComponent },
-  { path: 'directivas',  component: DirectivasComponent},
-  { path: 'componentes',  component: ComponentsComponent },
-  { path: 'typescript', component: TypescriptComponent },
-  { path: 'pipes', component: PipesComponent },
-  { path: 'servicios', component: ServiciosComponent },
-  { path: '**',  component: PageNotFoundComponent }
+    { path: '',  component: HomeComponent },
+    { path: 'directivas',  component: DirectivasComponent},
+    { path: 'componentes',  component: ComponentsComponent },
+    { path: 'typescript', component: TypescriptComponent },
+    { path: 'pipes', component: PipesComponent },
+    { path: 'servicios', component: ServiciosComponent },
+    { path: '**',  component: PageNotFoundComponent }
   ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes)
@@ -29,6 +27,4 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class RoutesModule {
-
-}
+export class RoutesModule { }
