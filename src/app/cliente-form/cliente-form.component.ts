@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewChecked} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { NgForm }  from '@angular/forms';
 import { Empleado } from './../cliente';
 import 'rxjs/add/operator/switchMap';
@@ -11,8 +11,8 @@ export interface FormErrors {
   templateUrl: './cliente-form.component.html',
   styleUrls: ['./cliente-form.component.css']
 }) 
-export class ClienteFormComponent implements OnInit {
-  @ViewChild('EmpleadoForm') currentForm: NgForm;
+export class ClienteFormComponent implements OnInit , AfterViewChecked {
+  @ViewChild('EmpleadoForm') private currentForm: NgForm;
   private departamentos : string[] = ['TI','Desarrollo','Ventas','Customer Service','RRHH','Seguridad']
   public empleado = new Empleado(12,'Ricardo Emmanuel Lopez Lopez','','Alejandro Dumas No.983, Polanco','','');
   public submitted: boolean;
@@ -21,35 +21,33 @@ export class ClienteFormComponent implements OnInit {
   constructor() {  this.submitted = false; }
   ngOnInit(){}
   OnSubmit(EmpleadoForm: NgForm) {
-    console.log(EmpleadoForm.value);
+    console.log(EmpleadoForm.form.get('nombre'));
      this.submitted=true;
   }
-  ngAfterViewChecked() {
+  public ngAfterViewChecked(): void {
     this.formChanged();
   }
-  formChanged() {
-  if (this.currentForm === this.EmpleadoForm) { return; }
-  this.EmpleadoForm = this.currentForm;
-  if (this.EmpleadoForm) {
-    this.EmpleadoForm.valueChanges
+  private formChanged() {
+    if (this.currentForm === this.EmpleadoForm) { return; }
+      this.EmpleadoForm = this.currentForm;
+    if (this.EmpleadoForm) {
+      this.EmpleadoForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
   }
 }
   onValueChanged(data? :  any){
        if(!this.EmpleadoForm){ return ;}
         const form = this.EmpleadoForm.form;
-
        for(const field in this.formErrors){
               this.formErrors[field] = '';
               const control = form.get(field);
-              if (control && control.dirty && !control.valid) {
+              if (control && (control.dirty || control.untouched) && !control.valid) {
                 const messages = this.validationMessages[field];
               for (const key in control.errors) {
-                  this.formErrors[field] += messages[key] + ' ';
+                  this.formErrors[field] += messages[key];
                 }
             }
         }
-         
   }
   public formErrors: FormErrors = {
     nombre: '',
@@ -57,12 +55,12 @@ export class ClienteFormComponent implements OnInit {
   }
   validationMessages = {
     'nombre': {
-      'required':      'Name is required.',
-      'minlength':     'Name must be at least 4 characters long.',
-      'maxlength':     'Name cannot be more than 24 characters long.'
+      'required':      'Es requerido ingresar el nombre',
+      'minlength':     'El nombre debe ser mayor a 4 caracteres.',
+      'maxlength':     'El nombre debe ser menor a 24 caracteres.'
   },
-  'email': {
-    'required': 'Es requerido ingresar un email.'
+    'email': {
+      'required': 'Es requerido ingresar un email.'
     }  
   };
 }
