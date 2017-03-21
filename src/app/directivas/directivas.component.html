@@ -1,1 +1,104 @@
-<h1>Directivas</h1>
+<h1>Entrada de datos</h1>
+<div class="container">
+    <form #VehicleForm="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="fecha">Noª de inventario</label>
+                    <input class="form-control"
+                            type="text" 
+                            [(ngModel)]="model.numeroInv" 
+                            name="numeroInv" 
+                            value="" 
+                            id="fecha">
+                    {{ model.numeroInv }}
+                 </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha">Descripción del vehiculo</label>
+                    <input class="form-control"
+                            type="text" 
+                            [(ngModel)]="model.descripcion" 
+                            name="descripcion" 
+                            value="" 
+                            id="fecha">
+                    {{ model.descripcion }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha">Inserta la fecha de entrada</label>
+                    <input class="form-control"
+                            type="date" 
+                            [(ngModel)]="model.fecha_entrada" 
+                            name="fecha_entrada" 
+                            value="" 
+                            id="fecha">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fecha">Inserta la fecha de salida</label>
+                    <input class="form-control"
+                            type="date" 
+                            [(ngModel)]="model.fecha_salida" 
+                            name="fecha_salida" 
+                            value="" 
+                            id="fecha">
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)="agregarVehiculo(VehicleForm.value)">Añadir Vehiculo</button>
+    </form>
+    <div class="row">
+        <div class="col-md-6">
+             <div class="well well-lg">
+                <p>Vehículos en acción inmediata</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>N. Inv</th>
+                            <th>Descripcion</th>
+                            <th>F. Entrada</th>
+                            <th>F. Salida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vam of accionInmediata">
+                            <td>{{ vam.numeroInv }}</td>
+                            <td>{{ vam.descripcion }}</td>
+                            <td>{{ vam.fecha_entrada }}</td>
+                            <td>{{ vam.fecha_salida}}</td>                              
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well well-lg">
+                <p>Vehículos en accion posterior</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>N. Inv</th>
+                            <th>Descripcion</th>
+                            <th>F. Entrada</th>
+                            <th>F. Salida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vap of accionPosterior">
+                            <td>{{ vap.numeroInv }}</td>
+                            <td>{{ vap.descripcion }}</td>
+                            <td>{{ vap.fecha_entrada }}</td>
+                            <td>{{ vap.fecha_salida}}</td>                              
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
