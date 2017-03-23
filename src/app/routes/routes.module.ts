@@ -10,12 +10,13 @@ import { TypescriptComponent } from '../typescript/typescript.component';
 import { PipesComponent } from '../pipes/pipes.component';
 import { ComponentsComponent } from '../components/components.component';
 import { ServiciosComponent } from '../servicios/servicios.component';
+import { ProductoFormComponent } from '../producto-form/producto-form.component';
 const appRoutes: Routes = [
     { path: '',  component: HomeComponent },
     { path: 'directivas',  component: DirectivasComponent},
     { path: 'componentes',  component: ComponentsComponent },
     { path: 'typescript', component: TypescriptComponent },
-    { path: 'pipes', component: PipesComponent },
+    { path: 'pipes', component: ProductoFormComponent },
     { path: 'servicios', component: ServiciosComponent },
     { path: '**',  component: PageNotFoundComponent }
   ];

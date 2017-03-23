@@ -14,6 +14,7 @@ import { PipesComponent } from './pipes/pipes.component';
 import { ComponentsComponent } from './components/components.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
+import { ProductoFormComponent } from './producto-form/producto-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ClienteFormComponent } from './cliente-form/cliente-form.component';
     ComponentsComponent,
     ServiciosComponent,
     ClienteFormComponent,
+    ProductoFormComponent
 ],
   imports: [
     BrowserModule,
