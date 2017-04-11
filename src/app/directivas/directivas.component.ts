@@ -12,7 +12,7 @@ export class Vehiculo {
     this.fecha_salida = fs;
     this.observaciones = obs; 
   }
- }
+}
 @Component({
   selector: 'app-directivas',
   templateUrl: './directivas.component.html',
